@@ -283,28 +283,28 @@ object AutoP3 : Module(
         }
         when (ring.type) {
             "walk" -> {
-                modMessage("§8Used walk")
+                modMessage("§7Used walk")
                 setKey("w", true)
             }
             "jump" -> {
-                modMessage("§8Used jump")
+                modMessage("§7Used jump")
                 jump()
             }
             "stop" -> {
                 dir = null
-                modMessage("§8Used stop")
+                modMessage("§7Used stop")
                 stopMovement()
                 stopVelo()
             }
             "boom" -> {
-                modMessage("§8Used boom")
+                modMessage("§7Used boom")
                 if (boomType.selected == "Regular") swapFromName("superboom tnt") else swapFromName("infinityboom tnt")
                 //modMessage(boomType.selected)
                 scheduleTask(0) { leftClick() }
             }
             "hclip" -> {
                 dir = null
-                modMessage("§8Used hclip")
+                modMessage("§7Used hclip")
                 hClip(ring.yaw)
                 ring.arguments?.let {
                     if ("walk" in it) {
@@ -316,22 +316,22 @@ object AutoP3 : Module(
             }
             "vclip" -> {
                 dir = null
-                modMessage("§8Used vclip")
+                modMessage("§7Used vclip")
                 lavaClipToggle(ring.depth!!.toDouble(), true)
             }
             "bonzo" -> {
-                modMessage("§8Used bonzo")
+                modMessage("§7Used bonzo")
                 swapFromName("bonzo's staff")
                 scheduleTask(0) {
                     clickAt(ring.yaw, ring.pitch)
                 }
             }
             "look" -> {
-                modMessage("§8Used rotate")
+                modMessage("§7Used rotate")
                 snapTo(ring.yaw, ring.pitch)
             }
             "align" -> {
-                modMessage("§8Used align")
+                modMessage("§7Used align")
                 mc.thePlayer.setPosition(
                     ring.location.xCoord,
                     mc.thePlayer.posY,
@@ -339,7 +339,7 @@ object AutoP3 : Module(
                 )
             }
             "block" -> {
-                modMessage("§8Snaping to [${ring.lookBlock!!.xCoord}, ${ring.lookBlock!!.yCoord}, ${ring.lookBlock!!.zCoord}]! ")
+                modMessage("§7Snaping to [${ring.lookBlock!!.xCoord}, ${ring.lookBlock!!.yCoord}, ${ring.lookBlock!!.zCoord}]! ")
                 val (yaw, pitch) = getYawAndPitch(
                     ring.lookBlock!!.xCoord,
                     ring.lookBlock!!.yCoord,
@@ -348,11 +348,11 @@ object AutoP3 : Module(
                 snapTo(yaw, pitch)
             }
             "edge" -> {
-                modMessage("§8Used edge")
+                modMessage("§7Used edge")
                 edge()
             }
             "command" -> {
-                modMessage("§8Used command")
+                modMessage("§7Used command")
                 commandAny(ring.command!!)
             }
             "blink" -> {
@@ -392,7 +392,7 @@ object AutoP3 : Module(
                 lastX = 0.0
                 lastZ = 0.0
                 airTicks = 0
-                modMessage("§8Used motion")
+                modMessage("§7Used motion")
                 if (mc.thePlayer.onGround) {
                     stopMovement()
                     dir = ring.yaw.toDouble()
