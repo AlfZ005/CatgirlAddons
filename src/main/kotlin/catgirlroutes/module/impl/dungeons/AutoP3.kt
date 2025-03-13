@@ -283,28 +283,28 @@ object AutoP3 : Module(
         }
         when (ring.type) {
             "walk" -> {
-                modMessage("Walking!")
+                modMessage("Used walk")
                 setKey("w", true)
             }
             "jump" -> {
-                modMessage("Jumping!")
+                modMessage("Used jump")
                 jump()
             }
             "stop" -> {
                 dir = null
-                modMessage("Stopping!")
+                modMessage("Used stop")
                 stopMovement()
                 stopVelo()
             }
             "boom" -> {
-                modMessage("Bomb denmark!")
+                modMessage("Used boom")
                 if (boomType.selected == "Regular") swapFromName("superboom tnt") else swapFromName("infinityboom tnt")
                 //modMessage(boomType.selected)
                 scheduleTask(0) { leftClick() }
             }
             "hclip" -> {
                 dir = null
-                modMessage("Hclipping!")
+                modMessage("Used hclip")
                 hClip(ring.yaw)
                 ring.arguments?.let {
                     if ("walk" in it) {
@@ -316,22 +316,22 @@ object AutoP3 : Module(
             }
             "vclip" -> {
                 dir = null
-                modMessage("Vclipping!")
+                modMessage("Used vclip")
                 lavaClipToggle(ring.depth!!.toDouble(), true)
             }
             "bonzo" -> {
-                modMessage("Bonzoing!")
+                modMessage("Used bonzo")
                 swapFromName("bonzo's staff")
                 scheduleTask(0) {
                     clickAt(ring.yaw, ring.pitch)
                 }
             }
             "look" -> {
-                modMessage("Looking!")
+                modMessage("Used rotate")
                 snapTo(ring.yaw, ring.pitch)
             }
             "align" -> {
-                modMessage("Aligning!")
+                modMessage("Used align")
                 mc.thePlayer.setPosition(
                     ring.location.xCoord,
                     mc.thePlayer.posY,
@@ -348,11 +348,11 @@ object AutoP3 : Module(
                 snapTo(yaw, pitch)
             }
             "edge" -> {
-                modMessage("Edging!")
+                modMessage("Used edge")
                 edge()
             }
             "command" -> {
-                modMessage("Sexecuting!")
+                modMessage("Used command")
                 commandAny(ring.command!!)
             }
             "blink" -> {
