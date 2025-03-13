@@ -93,7 +93,7 @@ object ChatUtils {
      * @see chatMessage
      */
     fun modMessage(message: Any?, prefix: String = getPrefix(), chatStyle: ChatStyle? = null) {
-        val chatComponent = ChatComponentText("$prefix §8 §r $message")
+        val chatComponent = ChatComponentText("$prefix §8 $message")
         chatStyle?.let { chatComponent.setChatStyle(it) } // Set chat style using setChatStyle method
         runOnMCThread { mc.thePlayer?.addChatMessage(chatComponent) }
     }
